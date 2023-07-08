@@ -5,12 +5,20 @@ set(PROJECT_VESRION 0.0.${PATCH_VERSION})
 
 project(helloworld VERSION ${PROJECT_VESRION})
 
-option(WITH_BOOST_TEST "Whether to build Boost test" ON)
+option(WITH_GOOGLE_TEST "Whether to build Google test" ON)
 
-configure_file(version.h.in version.h)
+configure_file(src/version.h.in version.h)
 
-add_executable(helloworld_cli main.cpp)
-add_library(helloworld lib.cpp)
+add_executable(
+    helloworld_cli 
+    src/main.cpp
+)
+
+add_library(
+    helloworld 
+    lib/lib.cpp 
+    lib/lib.h
+)
 
 set_target_properties(helloworld_cli helloworld PROPERTIES
     CXX_STANDARD 14
@@ -25,34 +33,60 @@ target_link_libraries(helloworld_cli PRIVATE
     helloworld
 )
 
-if(WITH_BOOST_TEST)
-    find_package(Boost COMPONENTS unit_test_framework REQUIRED)
-    add_executable(test_version test_version.cpp)
+if(WITH_GOOGLE_TEST)
+    set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+    add_subdirectory(
+        "${PROJECT_SOURCE_DIR}/googletest"
+        "googletest"
+    )
+    
+    add_executable(
+        test_version 
+        test/test_version.cpp
+    )
+
+    target_include_directories(test_version
+    PRIVATE "${CMAKE_BINARY_DIR}"
+    )
+
+    target_link_libraries(test_version 
+    PRIVATE helloworld
+    )
 
     set_target_properties(test_version PROPERTIES
         CXX_STANDARD 14
         CXX_STANDARD_REQUIRED ON
     )
 
-    set_target_properties(test_version PROPERTIES
-        COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
-        INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
+    # set_target_properties(test_version PROPERTIES
+    #     COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
+    #     INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
+    # )
+
+    target_include_directories(
+        test_version PRIVATE
+        "${CMAKE_CURRENT_SOURCE_DIR}/lib"
     )
 
-    target_link_libraries(test_version
-        ${Boost_LIBRARIES}
-        helloworld
+    target_link_libraries(
+        test_version PRIVATE
+        gtest gtest_main
     )
+
 endif()
 
 if (MSVC)
+    
+
     target_compile_options(helloworld_cli PRIVATE
         /W4
     )
     target_compile_options(helloworld PRIVATE
         /W4
     )
-    if(WITH_BOOST_TEST)
+    if(WITH_GOOGLE_TEST)
+        
+
         target_compile_options(test_version PRIVATE
             /W4
         )
@@ -80,7 +114,7 @@ set(CPACK_PACKAGE_VERSION_PATCH "${PROJECT_VERSION_PATCH}")
 set(CPACK_PACKAGE_CONTACT example@example.com)
 include(CPack)
 
-if(WITH_BOOST_TEST)
+if(WITH_GOOGLE_TEST)
     enable_testing()
-    add_test(test_version test_version)
+    add_test(test test)
 endif()
