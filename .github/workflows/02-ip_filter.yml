@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - '02-homework/**'
-      - '**/02-helloworld.yml'
+      - '02-helloworld.yml'
 
 jobs:
   build:
