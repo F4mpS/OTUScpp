@@ -34,12 +34,15 @@ target_link_libraries(helloworld_cli PRIVATE
 )
 
 if(WITH_GOOGLE_TEST)
-    set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-    add_subdirectory(
-        "${PROJECT_SOURCE_DIR}/googletest"
-        "googletest"
+    include(FetchContent)
+    FetchContent_Declare(
+        googletest
+        URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
     )
-    
+
+    set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+    FetchContent_MakeAvailable(googletest)
+  
     add_executable(
         test_version 
         test/test_version.cpp
@@ -58,19 +61,14 @@ if(WITH_GOOGLE_TEST)
         CXX_STANDARD_REQUIRED ON
     )
 
-    # set_target_properties(test_version PROPERTIES
-    #     COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
-    #     INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
-    # )
-
     target_include_directories(
         test_version PRIVATE
         "${CMAKE_CURRENT_SOURCE_DIR}/lib"
     )
 
     target_link_libraries(
-        test_version PRIVATE
-        gtest gtest_main
+        test_version 
+        PRIVATE ip filter split sort GTest::gtest_main
     )
 
 endif()
@@ -98,7 +96,7 @@ else ()
     target_compile_options(helloworld PRIVATE
         -Wall -Wextra -pedantic -Werror
     )
-    if(WITH_BOOST_TEST)
+    if(WITH_GOOGLE_TEST)
         target_compile_options(test_version PRIVATE
             -Wall -Wextra -pedantic -Werror
         )
