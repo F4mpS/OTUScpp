@@ -2,20 +2,19 @@ name: 'C++ CI'
 
 on:
   push:
-    paths:
-      - '01-homework/'
-    
-    
+    branches:
+      - master
+      - feature/github_actions
+
 jobs:
   build:
-    permissions: write-all
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
           submodules: true
       - run: sudo apt-get update && sudo apt-get install libboost-test-dev -y
-      - run: cmake 01-homework/ -D PATCH_VERSION=${{ github.run_number }} -D WITH_GOOGLE_TEST=ON
+      - run: cmake . -DPATCH_VERSION=${{ github.run_number }} -DWITH_BOOST_TEST=ON
       - run: cmake --build .
       - run: cmake --build . --target test
       - run: cmake --build . --target package
