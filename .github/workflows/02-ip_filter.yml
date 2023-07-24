@@ -3,7 +3,7 @@ name: 'IP filter'
 on:
   push:
     paths:
-      - '02-homework/'
+      - '02-homework/**'
 
 jobs:
   build:
