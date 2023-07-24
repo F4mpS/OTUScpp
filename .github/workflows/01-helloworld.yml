@@ -3,7 +3,7 @@ name: 'C++ CI'
 on:
   push:
     paths:
-      - '01-homework'
+      - '01-homework/'
 
 jobs:
   build:
