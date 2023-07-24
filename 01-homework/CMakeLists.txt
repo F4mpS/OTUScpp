@@ -116,5 +116,5 @@ include(CPack)
 
 if(WITH_GOOGLE_TEST)
     enable_testing()
-    add_test(test test)
+    add_test(test_version test_version)
 endif()
