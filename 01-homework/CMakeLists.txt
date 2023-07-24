@@ -68,7 +68,7 @@ if(WITH_GOOGLE_TEST)
 
     target_link_libraries(
         test_version 
-        PRIVATE ip filter split sort GTest::gtest_main
+        PRIVATE GTest::gtest_main
     )
 
 endif()
