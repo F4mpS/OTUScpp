@@ -4,6 +4,7 @@ namespace my
 {
     my::ip_adress SplitToIp(const std::vector<std::string> &str)
     {
+        my::ip_adress r;
         try
         {
             if (str.size() != 4)
@@ -11,21 +12,19 @@ namespace my
                 throw("Incorrect IPv4 adress!!!");
             }
 
-            my::ip_adress r;
             uint8_t *rFirst = &r.n1;
-
+            
             for (int i = 0; i < 4; i++)
             {
                 *(rFirst + i) = static_cast<uint8_t>(std::stoi(str.at(i)));
             }
             rFirst = nullptr;
-
-            return r;
         }
         catch (const std::exception &e)
         {
             std::cerr << e.what() << '\n';
         }
+        return r;
     }
 
     void PrintIp(const my::ip_adress& ip)
