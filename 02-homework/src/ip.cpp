@@ -12,7 +12,7 @@ namespace my
                 throw("Incorrect IPv4 adress!!!");
             }
 
-            uint8_t *rFirst = &r.n1;
+            uint8_t *rFirst = &r[0];
             
             for (int i = 0; i < 4; i++)
             {
@@ -29,14 +29,14 @@ namespace my
 
     void PrintIp(const my::ip_adress& ip)
     {
-        std::cout << static_cast<int>(ip.n1) << '.'
-                  << static_cast<int>(ip.n2) << '.'
-                  << static_cast<int>(ip.n3) << '.'
-                  << static_cast<int>(ip.n4) << std::endl;
+        std::cout << static_cast<int>(ip[0]) << '.'
+                  << static_cast<int>(ip[1]) << '.'
+                  << static_cast<int>(ip[2]) << '.'
+                  << static_cast<int>(ip[3]) << std::endl;
     }
 
     bool CompareIp(const my::ip_adress& rhv, const my::ip_adress& lhv)
     {
-        return std::tie(rhv.n1, rhv.n2, rhv.n3, rhv.n4) == std::tie(lhv.n1, lhv.n2, lhv.n3, lhv.n4);
+        return rhv == lhv;
     }
 }

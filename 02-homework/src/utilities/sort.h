@@ -1,5 +1,4 @@
-#ifndef SORT_H
-#define SORT_H
+#pragma once
 
 #include <iostream>
 #include <vector>
@@ -13,5 +12,3 @@ namespace my
 
     void LexicographicallySort(std::vector<my::ip_adress> &ip_pool);
 }
-
-#endif
