@@ -8,9 +8,12 @@ namespace my
     private:
         struct Node
         {
-            Node(T data, Node *next) : data(std::move(data)), next(next)
-            {}
-            Node *next;
+            Node(T data, Node *next)
+            {
+                this->data = std::move(data);
+                this->next = next;
+            }
+            Node *next = nullptr;
             T data;
 
         };
