@@ -23,7 +23,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: IPfilter
+          tag_name: IPfilter${{ github.run_number }}
           release_name: IP filter release ${{ github.run_number }}
           draft: false
           prerelease: false

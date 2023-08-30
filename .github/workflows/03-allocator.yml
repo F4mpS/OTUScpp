@@ -22,7 +22,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: Allocator
+          tag_name: Allocator${{ github.run_number }}
           release_name: Allocator release ${{ github.run_number }}
           draft: false
           prerelease: false
