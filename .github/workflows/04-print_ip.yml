@@ -22,7 +22,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: IpPrinter
+          tag_name: IpPrinter${{ github.run_number }}
           release_name: IpPrinter release ${{ github.run_number }}
           draft: false
           prerelease: false
