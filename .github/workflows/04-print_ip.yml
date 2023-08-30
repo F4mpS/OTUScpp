@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       # - run: sudo apt-get update && sudo apt-get install libboost-test-dev -y
-      - run: cmake 04-print_ip/ -D PATCH_VERSION=${{ github.run_number }}
+      - run: cmake 04-homework/ -D PATCH_VERSION=${{ github.run_number }}
       - run: cmake --build .
       - run: cmake --build . --target package
       - name: Create Release
