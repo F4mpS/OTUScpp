@@ -23,7 +23,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: IpPrinter
-          release_name: IpPrinter release ${{ github.run_number }}
+          release_name: Ip printer release ${{ github.run_number }}
           draft: false
           prerelease: false
       - name: Upload Release Asset
