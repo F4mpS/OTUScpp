@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Alexander\Dropbox\ALL\OTUS\lessons\lesson7\homework\solution\04-homework\src\fake.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Alexander\Dropbox\ALL\OTUS\lessons\lesson7\homework\solution\04-homework\src\PrintIp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Alexander\Dropbox\ALL\OTUS\lessons\lesson7\homework\solution\04-homework\src\PrintTuple.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Alexander\Dropbox\ALL\OTUS\lessons\lesson7\homework\solution\04-homework\src\Meta.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Alexander\Dropbox\ALL\OTUS\lessons\lesson7\homework\solution\04-homework\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{3E65648A-8BCB-3819-A09E-48CD00446C70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{A7CCDD5F-E0AA-3040-B2A2-700FC070C3DA}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
