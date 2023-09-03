@@ -13,12 +13,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - run: ls
+      - run: cd 04-homework/src/Doxyfile
+      - name: "Doxygen"
+        run: |
+          sudo apt-get install -y doxygen
+          doxygen Doxyfile
+          
     # Build the HTML documentation
       - name: Doxygen Action
         uses: mattnotmitt/doxygen-action@v1.1.0
         with:
-          doxyfile-path: ./04-homework/src/Doxyfile
+          doxyfile-path: ./Doxyfile
           working-directory: 04-homework/src
           
     # Deploy the HTML documentation to GitHub Pages
