@@ -13,11 +13,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - run: cd 04-homework/src
-      - name: "Doxygen"
-        run: |
-          sudo apt-get install -y doxygen
-          doxygen Doxyfile
+      - run: cd 04-homework
+      
+      - name: Doxygen install
+        run: sudo apt-get install -y doxygen
+      
+      - name: Doxygen generate Doxyfile
+        run: doxygen Doxyfile
           
     # Build the HTML documentation
       - name: Doxygen Action
