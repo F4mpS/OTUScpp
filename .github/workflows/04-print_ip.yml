@@ -24,7 +24,7 @@ jobs:
           ls
     # Build the HTML documentation
       - name: Doxygen Action
-        uses: mattnotmitt/doxygen-action@v1.1.0
+        uses: mattnotmitt/doxygen-action@v1.9.8
         with:
           doxyfile-path: ./04-homework/doc/Doxyfile
           working-directory: ./04-homework/src
