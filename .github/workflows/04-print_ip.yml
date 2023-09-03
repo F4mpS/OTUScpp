@@ -3,7 +3,7 @@ name: 'print_ip'
 on:
   push:
     paths:
-      - '04-print_ip/**'
+      - '04-homework/**'
       - '**/04-print_ip.yml'
 
 jobs:
@@ -12,13 +12,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-    
+
+      - run: cd 04-homework/src
+
+      - run: ls
+      - name: Doxygen install
+        run: sudo apt-get install -y doxygen
+
+      - run: ls
+      - name: Doxygen generate Doxyfile
+        run: doxygen 04-homework/src/Doxyfile
+          
     # Build the HTML documentation
       - name: Doxygen Action
         uses: mattnotmitt/doxygen-action@v1.1.0
         with:
-          doxyfile-path: ./04-homework/src/Doxyfile
-          working-directory: ./04-homework/src
+          doxyfile-path: ./Doxyfile
+          working-directory: 04-homework/src
           
     # Deploy the HTML documentation to GitHub Pages
       - name: GH Pages Deployment
@@ -54,5 +64,3 @@ jobs:
           asset_path: ./print_ip-0.0.${{ github.run_number }}-Linux.deb
           asset_name: print_ip-0.0.${{ github.run_number }}-Linux.deb
           asset_content_type: application/vnd.debian.binary-package
-          
-          
