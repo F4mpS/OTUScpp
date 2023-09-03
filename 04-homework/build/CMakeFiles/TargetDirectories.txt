@@ -1,6 +1,0 @@
-C:/Users/Alexander/Dropbox/ALL/OTUS/lessons/lesson7/homework/solution/04-homework/build/CMakeFiles/print_ip_cli.dir
-C:/Users/Alexander/Dropbox/ALL/OTUS/lessons/lesson7/homework/solution/04-homework/build/CMakeFiles/print.dir
-C:/Users/Alexander/Dropbox/ALL/OTUS/lessons/lesson7/homework/solution/04-homework/build/CMakeFiles/PACKAGE.dir
-C:/Users/Alexander/Dropbox/ALL/OTUS/lessons/lesson7/homework/solution/04-homework/build/CMakeFiles/INSTALL.dir
-C:/Users/Alexander/Dropbox/ALL/OTUS/lessons/lesson7/homework/solution/04-homework/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/Alexander/Dropbox/ALL/OTUS/lessons/lesson7/homework/solution/04-homework/build/CMakeFiles/ZERO_CHECK.dir
