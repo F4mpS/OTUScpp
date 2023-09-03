@@ -21,7 +21,7 @@ jobs:
 
       - run: ls
       - name: Doxygen generate Doxyfile
-        run: doxygen Doxyfile
+        run: doxygen 04-homework/src/Doxyfile
           
     # Build the HTML documentation
       - name: Doxygen Action
