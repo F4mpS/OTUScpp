@@ -3,7 +3,7 @@ name: 'print_ip'
 on:
   push:
     paths:
-      - '04-print_ip/**'
+      - '04-homework/**'
       - '**/04-print_ip.yml'
 
 jobs:
