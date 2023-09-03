@@ -18,7 +18,10 @@ jobs:
 
       - name: Doxygen find Doxyfile
         run: doxygen 04-homework/doc/Doxyfile
-          
+
+      - run: |
+          cd 04-homework/doc
+          ls
     # Build the HTML documentation
       - name: Doxygen Action
         uses: mattnotmitt/doxygen-action@v1.1.0
