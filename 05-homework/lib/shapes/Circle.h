@@ -44,10 +44,10 @@ private:
      * 
      */
     Point center;
-    
+
     /**
      * @brief Circle radius
      * 
      */
-    size_t radius;
+    size_t radius;    
 };
