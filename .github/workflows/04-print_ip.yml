@@ -21,14 +21,14 @@ jobs:
 
       - run: ls
       - name: Doxygen generate Doxyfile
-        run: doxygen 04-homework/src/Doxyfile
+        run: doxygen 04-homework/doc/Doxyfile
           
     # Build the HTML documentation
       - name: Doxygen Action
         uses: mattnotmitt/doxygen-action@v1.1.0
         with:
           doxyfile-path: ./Doxyfile
-          working-directory: 04-homework/doc
+          working-directory: 04-homework/src
           
     # Deploy the HTML documentation to GitHub Pages
       - name: GH Pages Deployment
