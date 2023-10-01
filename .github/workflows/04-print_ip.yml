@@ -13,21 +13,29 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - run: cd 04-homework/src
+
+      - run: ls
       - name: Doxygen install
         run: sudo apt-get install -y doxygen
 
+      - run: ls
+      - name: Doxygen generate Doxyfile
+        run: doxygen 04-homework/src/Doxyfile
+          
     # Build the HTML documentation
-      - name: Doxygen build
-        run: |
-          cd 04-homework/doc
-          doxygen Doxyfile
+      - name: Doxygen Action
+        uses: mattnotmitt/doxygen-action@v1.1.0
+        with:
+          doxyfile-path: ./Doxyfile
+          working-directory: 04-homework/src
           
     # Deploy the HTML documentation to GitHub Pages
       - name: GH Pages Deployment
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./04-homework/doc/html/
+          publish_dir: ./doc/html/
           enable_jekyll: false
           allow_empty_commit: false
           force_orphan: true
@@ -56,5 +64,3 @@ jobs:
           asset_path: ./print_ip-0.0.${{ github.run_number }}-Linux.deb
           asset_name: print_ip-0.0.${{ github.run_number }}-Linux.deb
           asset_content_type: application/vnd.debian.binary-package
-          
-          
