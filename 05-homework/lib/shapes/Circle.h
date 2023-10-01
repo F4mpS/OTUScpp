@@ -40,14 +40,14 @@ public:
     void SetCenter(double x, double y) {}
 private:
     /**
-     * @brief Circle radius
-     * 
-     */
-    size_t radius;
-
-    /**
      * @brief Circle cord
      * 
      */
     Point center;
+    
+    /**
+     * @brief Circle radius
+     * 
+     */
+    size_t radius;
 };
