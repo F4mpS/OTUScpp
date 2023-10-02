@@ -1,10 +1,10 @@
-name: 'print_ip'
+name: 'editor'
 
 on:
   push:
     paths:
       - '04-homework/**'
-      - '**/04-print_ip.yml'
+      - '**/05-editor.yml'
 
 jobs:
   build:
@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - run: cd 04-homework/src
+      - run: cd 05-homework/src
 
       - run: ls
       - name: Doxygen install
@@ -21,27 +21,27 @@ jobs:
 
       - run: ls
       - name: Doxygen generate Doxyfile
-        run: doxygen 04-homework/doc/Doxyfile
+        run: doxygen 05-homework/doc/Doxyfile
           
     # Build the HTML documentation
       - name: Doxygen Action
         uses: mattnotmitt/doxygen-action@v1.1.0
         with:
           doxyfile-path: ./Doxyfile
-          working-directory: 04-homework/doc
+          working-directory: 05-homework/doc
           
     # Deploy the HTML documentation to GitHub Pages
       - name: GH Pages Deployment
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./doc/html/
+          publish_dir: ./doc/html/editor
           enable_jekyll: false
           allow_empty_commit: false
           force_orphan: true
           publish_branch: gh-pages
 
-      - run: cmake 04-homework/ -D PATCH_VERSION=${{ github.run_number }}
+      - run: cmake 05-homework/ -D PATCH_VERSION=${{ github.run_number }}
       - run: cmake --build .
       - run: cmake --build . --target package
       - name: Create Release
@@ -50,8 +50,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: IpPrinter${{ github.run_number }}
-          release_name: IpPrinter release ${{ github.run_number }}
+          tag_name: Editor${{ github.run_number }}
+          release_name: Editor release ${{ github.run_number }}
           draft: false
           prerelease: false
       - name: Upload Release Asset
@@ -61,7 +61,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./print_ip-0.0.${{ github.run_number }}-Linux.deb
-          asset_name: print_ip-0.0.${{ github.run_number }}-Linux.deb
+          asset_path: ./editor-0.0.${{ github.run_number }}-Linux.deb
+          asset_name: editor-0.0.${{ github.run_number }}-Linux.deb
           asset_content_type: application/vnd.debian.binary-package
-
