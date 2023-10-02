@@ -29,7 +29,7 @@ public:
      * 
      * @param newRadius new radius
      */
-    void SetRadius(size_t newRadius) {}
+    void SetRadius(size_t newRadius);
 
     /**
      * @brief Set coords
@@ -37,7 +37,7 @@ public:
      * @param x x cord
      * @param y y cord
      */
-    void SetCenter(double x, double y) {}
+    void SetCenter(double x, double y);
 private:
     /**
      * @brief Circle cord
