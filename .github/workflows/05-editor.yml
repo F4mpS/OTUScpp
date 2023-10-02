@@ -3,7 +3,7 @@ name: 'editor'
 on:
   push:
     paths:
-      - '04-homework/**'
+      - '05-homework/**'
       - '**/05-editor.yml'
 
 jobs:
