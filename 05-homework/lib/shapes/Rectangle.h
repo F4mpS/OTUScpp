@@ -23,7 +23,7 @@ public:
      * @brief Draws rectagle with vertexes in *LeftTopVertex* and *RightBottomVertex*
      * 
      */
-    void Draw() override {}
+    void Draw() override;
 
     /**
      * @brief Set left top vertex
@@ -31,7 +31,7 @@ public:
      * @param x new x cord
      * @param y new y cord
      */
-    void SetLeftTopVertex(double x, double y) {}
+    void SetLeftTopVertex(double x, double y);
     
     /**
      * @brief Set right bottom vertex
@@ -39,7 +39,7 @@ public:
      * @param x new x cord
      * @param y new y cord
      */
-    void SetRightBottomVertex(double x, double y) {}
+    void SetRightBottomVertex(double x, double y);
 private:
     /**
      * @brief Left top vertex point

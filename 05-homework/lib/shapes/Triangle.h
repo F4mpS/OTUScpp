@@ -21,7 +21,7 @@ public:
      * @brief Draws triangle with vertexes in *firstVertex* and *secondVertex* and *thirdVertex*
      * 
      */
-    void Draw() override {}
+    void Draw() override;
 
     /**
      * @brief Set *firstVertex*
@@ -29,7 +29,7 @@ public:
      * @param x new x cord
      * @param y new y cord
      */
-    void SetFirstVertex(double x, double y) {}
+    void SetFirstVertex(double x, double y);
 
     /**
      * @brief Set *secondVertex*
@@ -37,7 +37,7 @@ public:
      * @param x new x cord
      * @param y new y cord
      */
-    void SetSecondVertex(double x, double y) {}
+    void SetSecondVertex(double x, double y);
     
     /**
      * @brief Set *thirdVertex*
@@ -45,7 +45,7 @@ public:
      * @param x new x cord
      * @param y new y cord
      */
-    void SetThirdVertex(double x, double y) {}
+    void SetThirdVertex(double x, double y);
 private:
     /**
      * @brief First vertex point

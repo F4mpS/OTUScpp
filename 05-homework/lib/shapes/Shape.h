@@ -45,14 +45,14 @@ public:
      * 
      * @param newColor *lineColor*
      */
-    void SetColor(Color newColor) { lineColor = newColor; } 
+    void SetColor(Color newColor);
     
     /**
      * @brief Set *lineSize*
      * 
      * @param newSize *lineSize*
      */
-    void SetLineSize(size_t newSize) { lineSize = newSize; }
+    void SetLineSize(size_t newSize);
 
     /**
      * @brief Shape draw virtual method

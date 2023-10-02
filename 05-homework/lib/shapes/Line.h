@@ -23,7 +23,7 @@ public:
      * @brief Draws line from *start* to *end*
      * 
      */
-    void Draw () override {}
+    void Draw () override;
 
     /**
      * @brief Set *start* point
@@ -31,7 +31,7 @@ public:
      * @param x new x cord
      * @param y new y cord
      */
-    void SetStart(double x, double y) {}
+    void SetStart(double x, double y);
 
     /**
      * @brief Set *end* point
@@ -39,7 +39,7 @@ public:
      * @param x new x cord
      * @param y new y cord
      */
-    void SetEnd(double x, double y) {}
+    void SetEnd(double x, double y);
 private:
     /**
      * @brief Start point

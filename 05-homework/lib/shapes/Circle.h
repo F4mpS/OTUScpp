@@ -22,7 +22,7 @@ public:
      * @brief Draws circle in *center* with radius *radius*
      * 
      */
-    void Draw() override {}
+    void Draw() override;
 
     /**
      * @brief Set radius
