@@ -26,7 +26,7 @@ void BulkContainer::ClearBulk()
 {
     if (bulk->GetSize() != 0)
     {
-        modPtr->LogPrint(bulk.GetCommandsList());
+        modPtr->LogPrint(bulk->GetCommandsList());
         bulk->ClearCommandList();
     }
 }
