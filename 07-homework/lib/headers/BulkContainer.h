@@ -25,3 +25,4 @@ private:
     Moderator* modPtr;
     size_t maxBulkSize;
 };
+
