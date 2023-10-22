@@ -21,8 +21,8 @@ public:
 
 private:
     size_t braceCounter = 0;
+    size_t maxBulkSize;
     Bulk* bulk;
     Moderator* modPtr;
-    size_t maxBulkSize;
 };
 
