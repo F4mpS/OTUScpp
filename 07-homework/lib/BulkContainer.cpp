@@ -1,33 +1,33 @@
 #include "headers/BulkContainer.h"
 #include "headers/Moderator.h"
 
-BulkContainer::BulkContainer(Moderator& mod, size_t maxBulkSize) : modPtr(&mod), maxBulkSize(maxBulkSize), bulk(maxBulkSize) {}
+BulkContainer::BulkContainer(Moderator& mod, size_t maxBulkSize) : modPtr(&mod), maxBulkSize(maxBulkSize), bulk(new Bulk(maxBulkSize)) {}
 
 bool BulkContainer::CheckBulkForOverflow()
 {
-    return bulk.GetSize() >= maxBulkSize;
+    return bulk->GetSize() >= maxBulkSize;
 }
 
 void BulkContainer::AddCommand(Command command)
 {
     if (braceCounter == 0)
     {
-        bulk.AddCommand(command);
+        bulk->AddCommand(command);
         if (CheckBulkForOverflow())
             ClearBulk();
     }
     else
     {
-        bulk.AddCommand(command);
+        bulk->AddCommand(command);
     }
 }
 
 void BulkContainer::ClearBulk()
 {
-    if (bulk.GetSize() != 0)
+    if (bulk->GetSize() != 0)
     {
         modPtr->LogPrint(bulk.GetCommandsList());
-        bulk.ClearCommandList();
+        bulk->ClearCommandList();
     }
 }
 
