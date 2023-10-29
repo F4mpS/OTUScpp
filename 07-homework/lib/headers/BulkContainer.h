@@ -21,74 +21,8 @@ public:
 
 private:
     size_t braceCounter = 0;
-    Bulk bulk;
     Moderator* modPtr;
     size_t maxBulkSize;
+    Bulk* bulk;
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// #include <memory>
-// #include <string>
-// #include <Stub_command.h>
-// #include <Bulk.h>
-
-// class BULKoperator : public std::enable_shared_from_this<BULKoperator>
-// {
-// public:
-//     BULKoperator(size_t size) : bulkSize(size) 
-//     {
-
-//     }
-
-//     void PushNewCommand(std::string command)
-//     {
-//         Stub_command newCommand(command);
-//         bulkList.front().PushNewCommand(newCommand);
-//     }
-
-// private:
-//     void CheckForOverflow();
-//     void ClearBulk();
-//     void ForcedStop();
-//     // {}
-
-//     std::vector<Bulk> bulkList;
-//     size_t bulkSize;
-// };
