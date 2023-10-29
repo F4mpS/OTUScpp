@@ -1,50 +1,60 @@
 #pragma once
 
 #include <string>
+#include <iostream>
 #include <memory>
 #include <list>
 
 #include "../shapes/Shape.h"
-#include "../shapes/Circle.h"
-#include "../shapes/Rectangle.h"
-#include "../shapes/Triangle.h"
-#include "../shapes/Line.h"
 
 /**
  * @brief Canvas representation. User can draw different shapes on it.
  * 
  */
-class Document
+class Document : public std::enable_shared_from_this<Document>
 {
 public:
-    Document() {}
-    ~Document() {}
-
-    /** @brief Method that deletes *shape* from shapeList
-     *  @param shape reference to shape
-    */
-    void DeleteShape(std::shared_ptr<Shape> shape);
+    Document() = default;
+    ~Document() = default;
     
     /** @brief Method that pushes new *shape* to shapeList
      *  @param shape reference to shape
     */
-    void PushShape(std::shared_ptr<Shape> shape);
+    void PushShape(std::shared_ptr<Shape> shape)
+    {
+        shapeList.emplace_back(shape);
+    }
     
     /** @brief Method that sets *currentShape* as *shape*
      *  @param shape reference to shape
     */
-    void SelectCurrentShape(std::shared_ptr<Shape> shape);
+    void SelectCurrentShape(std::shared_ptr<Shape> shape)
+    {
+        currentShape = shape;
+    }
 
 
     /** @brief Method that draws *shape*
-     *  @param shape reference to shape
-     * 
-     *  @brief It uses polymorphism to print different shape by calling single method
     */
-    void DrawShape(const Line& shape);
-    void DrawShape(const Triangle& shape);
-    void DrawShape(const Circle& shape);
-    void DrawShape(const Rectangle& shape);
+    void DrawShape()
+    {
+        currentShape.get()->Draw();
+        PushShape(currentShape);
+    }
+
+    /** @brief Method that erase all shapes
+    */
+    void EraseShape()
+    {
+        std::cout << "--- Erase START ---" << std::endl; 
+        for (auto &shape : shapeList)
+        {
+            shape.get()->Erase();
+        }
+        
+        shapeList.clear();
+        std::cout << "--- Erase END ---" << std::endl; 
+    }
 
 private:
     /**

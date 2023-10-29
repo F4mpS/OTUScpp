@@ -6,9 +6,10 @@
  * @brief Line implementation.
  * 
  */
-class Line : Shape
+class Line : public Shape, public std::enable_shared_from_this<Line>
 {
 public:
+    Line() = default;
     /**
      * @brief Construct a new Line object
      * 
@@ -23,7 +24,19 @@ public:
      * @brief Draws line from *start* to *end*
      * 
      */
-    void Draw () override;
+    void Draw () override
+    {
+        std::cout << "Line drawn" << std::endl;
+    }
+
+    /**
+     * @brief Erase line
+     * 
+     */
+    void Erase() override
+    {
+        std::cout << "Line erased" << std::endl;
+    }
 
     /**
      * @brief Set *start* point

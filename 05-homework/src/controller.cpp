@@ -1,51 +1,51 @@
-#include "../lib/mvc/controller/controller.h"
+#include "../lib/api/controller.h"
 
-
-void controller::CallCloseWindow(std::shared_ptr<view> window) 
+void controller::CallClearDocument() 
 {
-    (void)window;
+    Model.ClearDocument();
 }
 
-void controller::CallClearDocument(std::shared_ptr<Document> document) 
+void controller::CallCloseDocument() 
 {
-    (void)document;
+    Model.CloseDocument();
 }
 
-void controller::CallCloseDocument(std::shared_ptr<Document> document) 
+void controller::CallImportDocument(std::string docName) 
 {
-    (void)document;
+    Model.ImportDocument(docName);
 }
 
-void controller::CallSaveDocument(std::string &documentName, std::shared_ptr<Document> document) 
+void controller::CallExportDocument(std::string docName) 
 {
-    (void)documentName;
-    (void)document;
+    Model.ExportDocument(docName);
 }
 
-void controller::CallExportDocument(std::shared_ptr<Document> document) 
+void controller::CallCreateDocument() 
 {
-    (void)document;
+    Model.CreateDocument();
 }
 
-void controller::CallCreateDocument(std::string &documentName, std::shared_ptr<Document> document) 
+void controller::CallSelectCircle() 
 {
-    (void)documentName;
-    (void)document;
+    Model.SelectCircle();
 }
 
-void controller::CallSelectShape(std::shared_ptr<Shape> shape, std::shared_ptr<Document> document) 
+void controller::CallSelectLine() 
 {
-    (void)shape;
-    (void)document;
+    Model.SelectLine();
 }
 
-void controller::CallDrawShape(std::shared_ptr<Document> document) 
+void controller::CallSelectRectangle() 
 {
-    (void)document;
+    Model.SelectRectangle();
 }
 
-void controller::CallDeleteShape(std::shared_ptr<Shape> shape, std::shared_ptr<Document> document) 
+void controller::CallSelectTriangle() 
 {
-    (void)shape;
-    (void)document;
+    Model.SelectTriangle();
+}
+
+void controller::CallDrawShape() 
+{
+    Model.DrawShape();
 }

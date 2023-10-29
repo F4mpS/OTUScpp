@@ -3,7 +3,9 @@
 #include "Color.h"
 #include "Point.h"
 
-class Shape
+#include <memory>
+
+class Shape : public std::enable_shared_from_this<Shape>
 {
 public:
     /**
@@ -38,7 +40,9 @@ public:
      * @brief Shape virtual destructor
      * 
      */
-    virtual ~Shape() = 0;
+    virtual ~Shape() = default;
+
+    // Shape(const Shape& shape) {}
 
     /**
      * @brief Set *lineColor*
@@ -58,7 +62,13 @@ public:
      * @brief Shape draw virtual method
      * 
      */
-    virtual void Draw() = 0;
+    virtual void Draw() {}
+
+    /**
+     * @brief Shape erase virtual method
+     * 
+     */
+    virtual void Erase() {}
 protected:
     /**
      * @brief Shape line color

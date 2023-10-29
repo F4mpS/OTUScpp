@@ -16,11 +16,7 @@ add_library(
     src/controller.cpp
     src/model.cpp
     src/view.cpp
-    lib/mvc/Document.h
-    lib/mvc/controller/controller.h
-    lib/mvc/model/model.h
-    lib/mvc/view/view.h
-    lib/fake.cpp
+    lib/api/Document.h
 )
 
 add_library(

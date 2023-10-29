@@ -6,9 +6,10 @@
  * @brief Rectangle implementation.
  * 
  */
-class Rectangle : Shape
+class Rectangle : public Shape, public std::enable_shared_from_this<Rectangle>
 {
 public:
+    Rectangle() = default;
     /**
      * @brief Construct a new Line object
      * 
@@ -23,7 +24,19 @@ public:
      * @brief Draws rectagle with vertexes in *LeftTopVertex* and *RightBottomVertex*
      * 
      */
-    void Draw() override;
+    void Draw () override
+    {
+        std::cout << "Rectangle drawn" << std::endl;
+    }
+
+    /**
+     * @brief Erase rectangle
+     * 
+     */
+    void Erase() override
+    {
+        std::cout << "Rectangle erased" << std::endl;
+    }
 
     /**
      * @brief Set left top vertex

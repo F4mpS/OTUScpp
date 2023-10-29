@@ -6,9 +6,10 @@
  * @brief Circle implementation.
  * 
  */
-class Circle : Shape
+class Circle : public Shape, public std::enable_shared_from_this<Circle>
 {
 public:
+    Circle() = default;
     /**
      * @brief Construct a new Circle object
      * 
@@ -22,7 +23,20 @@ public:
      * @brief Draws circle in *center* with radius *radius*
      * 
      */
-    void Draw() override;
+    void Draw () override
+    {
+        std::cout << "Circle drawn" << std::endl;
+    }
+
+    /**
+     * @brief Erase circle
+     * 
+     */
+    void Erase() override
+    {
+        std::cout << "Circle erased" << std::endl;
+    }
+
 
     /**
      * @brief Set radius

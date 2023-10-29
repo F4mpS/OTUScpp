@@ -2,9 +2,10 @@
 
 #include "Shape.h"
 
-class Triangle : Shape
+class Triangle : public Shape, public std::enable_shared_from_this<Triangle>
 {
 public:
+    Triangle() = default;
     /**
      * @brief Construct a new Triangle object
      * 
@@ -17,11 +18,19 @@ public:
      */
     Triangle (double x1, double y1, double x2, double y2, double x3, double y3) : firstVertex(x1, y1), secondVertex(x2, y2), thirdVertex(x3, y3) {}
 
+    void Draw () override
+    {
+        std::cout << "Triangle drawn" << std::endl;
+    }
+
     /**
-     * @brief Draws triangle with vertexes in *firstVertex* and *secondVertex* and *thirdVertex*
+     * @brief Erase triangle
      * 
      */
-    void Draw() override;
+    void Erase() override
+    {
+        std::cout << "Triangle erased" << std::endl;
+    }
 
     /**
      * @brief Set *firstVertex*

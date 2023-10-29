@@ -1,10 +1,36 @@
 #include <iostream>
 
-#include "../lib/mvc/view/view.h"
+#include "../lib/api/view.h"
 
 int main()
 {
-    view window;
+    view ui;
 
-    window.InitWindow(); 
+    std::cout << "FIRST DOC" << std::endl;
+    ui.CreateDocumentBtn();
+    ui.CircleBtn();
+    ui.DrawShapeBtn();
+    ui.LineBtn();
+    ui.DrawShapeBtn();
+    ui.ExportDocumentBtn("My first document");
+    std::cout << std::endl;
+
+    std::cout << "SECOND DOC" << std::endl;
+    ui.CreateDocumentBtn();
+    ui.RectangleBtn();
+    ui.DrawShapeBtn();
+    ui.ExportDocumentBtn("My second document");
+    std::cout << std::endl;
+
+    std::cout << "FIRST DOC" << std::endl;
+    ui.ImportDocumentBtn("My first document");
+    ui.ClearDocumentBtn();
+    ui.CloseDocumentBtn();
+    std::cout << std::endl;
+
+    std::cout << "SECOND DOC" << std::endl;
+    ui.ImportDocumentBtn("My second document");
+    ui.ClearDocumentBtn();
+    ui.CloseDocumentBtn();
+    std::cout << std::endl;
 }
