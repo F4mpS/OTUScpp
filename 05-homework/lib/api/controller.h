@@ -11,6 +11,9 @@
 class controller
 {
 public:
+    controller() = default;
+    ~controller() = default;
+
     /** @brief Fires after *ClearDocumentBtn* is called from GUI and calls *ClearDocument* in model 
      *  @param document refence to document
     */

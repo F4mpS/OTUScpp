@@ -17,13 +17,14 @@ public:
      * @param y y cord
      * @param radius circle radius
      */
-    Circle (double x, double y, size_t radius) : center(x, y), radius(radius) {}
+    Circle(double x, double y, size_t radius) : center(x, y), radius(radius) {}
 
+    ~Circle() = default;
     /**
      * @brief Draws circle in *center* with radius *radius*
      * 
      */
-    void Draw () override
+    void Draw() override
     {
         std::cout << "Circle drawn" << std::endl;
     }

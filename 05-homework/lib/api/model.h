@@ -6,7 +6,6 @@
 #include <iostream>
 
 #include "Document.h"
-#include "../shapes/Shape.h"
 #include "../shapes/Circle.h"
 #include "../shapes/Line.h"
 #include "../shapes/Rectangle.h"

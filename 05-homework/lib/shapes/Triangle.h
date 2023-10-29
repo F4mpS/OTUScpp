@@ -18,7 +18,9 @@ public:
      */
     Triangle (double x1, double y1, double x2, double y2, double x3, double y3) : firstVertex(x1, y1), secondVertex(x2, y2), thirdVertex(x3, y3) {}
 
-    void Draw () override
+    ~Triangle() = default;
+
+    void Draw() override
     {
         std::cout << "Triangle drawn" << std::endl;
     }

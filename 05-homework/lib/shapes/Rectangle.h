@@ -18,13 +18,14 @@ public:
      * @param x2 right bottom vertex x cord
      * @param y2 right bottom vertex y cord
      */
-    Rectangle (double x1, double y1, double x2, double y2) : LeftTopVertex(x1, y1), RightBottomVertex(x2, y2) {}
+    Rectangle(double x1, double y1, double x2, double y2) : LeftTopVertex(x1, y1), RightBottomVertex(x2, y2) {}
 
+    ~Rectangle() = default;
     /**
      * @brief Draws rectagle with vertexes in *LeftTopVertex* and *RightBottomVertex*
      * 
      */
-    void Draw () override
+    void Draw() override
     {
         std::cout << "Rectangle drawn" << std::endl;
     }

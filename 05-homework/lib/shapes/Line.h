@@ -18,13 +18,14 @@ public:
      * @param x2 end x cord
      * @param y2 end y cord
      */
-    Line (double x1, double y1, double x2, double y2) : start(x1, y1), end(x2, y2) {}
+    Line(double x1, double y1, double x2, double y2) : start(x1, y1), end(x2, y2) {}
     
+    ~Line() = default;
     /**
      * @brief Draws line from *start* to *end*
      * 
      */
-    void Draw () override
+    void Draw() override
     {
         std::cout << "Line drawn" << std::endl;
     }
