@@ -29,7 +29,7 @@ if(MSVC)
         /W4
     )
 else()
-    target_compile_options(PRIVATE
+    target_compile_options(bayan PRIVATE
         -Werror -Wall -Wimplicit-fallthrough -pedantic-errors
     )
 endif()
