@@ -5,8 +5,6 @@ set(PROJECT_VERSION 0.0.${PATCH_VERSION})
 
 project(bulk VERSION ${PROJECT_VERSION})
 
-find_package(fmt REQUIRED)
-
 add_executable(
     bulk
     src/main.cpp
@@ -29,10 +27,6 @@ set_target_properties(
 
 target_include_directories(
     bulk PRIVATE "${CMAKE_BINARY_DIR}"
-)
-
-target_link_libraries(
-    bulk PUBLIC fmt
 )
 
 if (MSVC)
