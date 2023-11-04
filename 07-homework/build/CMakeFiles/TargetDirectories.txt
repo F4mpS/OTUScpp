@@ -1,5 +1,0 @@
-C:/Users/Alexander/Desktop/OTUSfix/07-homework/build/CMakeFiles/bulk.dir
-C:/Users/Alexander/Desktop/OTUSfix/07-homework/build/CMakeFiles/PACKAGE.dir
-C:/Users/Alexander/Desktop/OTUSfix/07-homework/build/CMakeFiles/INSTALL.dir
-C:/Users/Alexander/Desktop/OTUSfix/07-homework/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/Alexander/Desktop/OTUSfix/07-homework/build/CMakeFiles/ZERO_CHECK.dir

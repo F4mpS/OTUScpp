@@ -14,9 +14,11 @@ void FilePrinter::Print(const std::vector<std::string>& commandsNamesList) const
     ss << t;
     std::string strTimeTag = ss.str();
     
-    std::fstream outFile(fileName + strTimeTag + ".log");
+    std::ofstream outFile(fileName + strTimeTag + ".log");
 
     for (auto &command : commandsNamesList)
         outFile << command << ' ';
     outFile << std::endl;
+
+    outFile.close();
 }

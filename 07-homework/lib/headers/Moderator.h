@@ -14,7 +14,6 @@ using system_clock = std::chrono::system_clock;
 class Moderator
 {
 public:
-    // Moderator(size_t, std::istream&, std::ostream&);
     Moderator(size_t, std::istream&);
 
     ~Moderator() = default;
@@ -33,7 +32,6 @@ public:
 private:
     std::vector<OstreamPrinter*> oPrinters;
     std::vector<FilePrinter*> fPrinters;
-    // ConsolePrinter* output;
     ConsoleReader* input;
     BulkContainer* bulkContainer;
 };

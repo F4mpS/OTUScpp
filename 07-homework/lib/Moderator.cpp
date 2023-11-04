@@ -48,31 +48,16 @@ void Moderator::LogCloseBrace()
 
 void Moderator::LogPrint(std::vector<Command> commandsList, system_clock::time_point bulkCreationTime)
 {
-    // commandsList -> std::vector<std::string> commandsNames
-    // rfor(FilePrinters)
-    //      Print(commandsNames)
-    // rfor(StreamPrinters)
-    //      Print(commandsNames)
     std::vector<std::string> commandsNamesList;
     for (auto &command : commandsList)
         commandsNamesList.push_back(command.GetCommandName());
     
     for (auto &oPrinter : oPrinters)
         oPrinter->Print(commandsNamesList);
+
     for (auto &fPrinter : fPrinters)
     {
-        fPrinter->SetTimeTag(bulkCreationTime); // std::format("{:%Y%m%d%H%M%OS}", std::chrono::system_clock::now())
+        fPrinter->SetTimeTag(bulkCreationTime);
         fPrinter->Print(commandsNamesList);
     }
-    
-
-//     output->Print("bulk: ");
-//     for (size_t i = 0; i < commandsList.size(); i++)
-//     {
-//         if (i == 0)
-//             output->Print(commandsList[i].GetCommandName());
-//         else 
-//             output->Print(", " + commandsList[i].GetCommandName());
-//     }
-//     output->Print("\n");
 }

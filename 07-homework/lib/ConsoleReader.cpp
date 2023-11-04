@@ -28,7 +28,6 @@ void ConsoleReader::Start()
         {
             Command stubCommand(command);
             modPtr->LogCommand(stubCommand);
-        }
-        
+        }  
     }
 }
