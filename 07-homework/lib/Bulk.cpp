@@ -15,6 +15,11 @@ size_t Bulk::GetSize()
     return commadsList.size();
 }
 
+system_clock::time_point Bulk::GetCreationTime()
+{
+    return creationTime;
+}
+
 void Bulk::ClearCommandList()
 {
     commadsList.clear();
