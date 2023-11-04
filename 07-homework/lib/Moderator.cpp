@@ -7,12 +7,12 @@ Moderator::Moderator(size_t bulkSize, std::istream& inS = std::cin) :
 
 void Moderator::AddOutputStream(std::ostream& outS)
 {
-    oPrinters.emplace_back(OstreamPrinter(outS));
+    oPrinters.emplace_back(new OstreamPrinter(outS));
 }
 
 void Moderator::AddOutputFile(std::string outFileName)
 {
-    fPrinters.emplace_back(FilePrinter(outFileName));
+    fPrinters.emplace_back(new FilePrinter(outFileName));
 }
 
 void Moderator::StartReading()
