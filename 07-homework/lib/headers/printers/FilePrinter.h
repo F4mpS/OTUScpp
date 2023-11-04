@@ -2,7 +2,7 @@
 
 #include <chrono>
 #include <fstream> 
-#include <fmt/format.h>
+#include <fmt/chrono.h>
 
 #include "../../interfaces/IPrinter.h"
 
