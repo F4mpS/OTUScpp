@@ -1,0 +1,10 @@
+^C:\USERS\ALEXANDER\DESKTOP\OTUSFIX\07-HOMEWORK\BUILD\CMAKEFILES\59DE5134BA646E7B96E55BE288997BA9\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Alexander/Desktop/OTUSfix/07-homework -BC:/Users/Alexander/Desktop/OTUSfix/07-homework/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/Alexander/Desktop/OTUSfix/07-homework/build/bulk.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

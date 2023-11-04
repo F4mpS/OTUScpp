@@ -1,0 +1,10 @@
+^C:\USERS\ALEXANDER\DESKTOP\OTUSFIX\07-HOMEWORK\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Alexander/Desktop/OTUSfix/07-homework -BC:/Users/Alexander/Desktop/OTUSfix/07-homework/build --check-stamp-file C:/Users/Alexander/Desktop/OTUSfix/07-homework/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
