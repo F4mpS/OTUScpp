@@ -31,9 +31,9 @@ target_include_directories(
     bulk PRIVATE "${CMAKE_BINARY_DIR}"
 )
 
-# target_link_libraries(
-#     print_ip_cli PRIVATE print
-# )
+target_link_libraries(
+    bayan PUBLIC fmt
+)
 
 if (MSVC)
     target_compile_options(bulk PRIVATE
