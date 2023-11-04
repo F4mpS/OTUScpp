@@ -1,4 +1,4 @@
-#include "OstreamPrinter.h"
+#include "headers/printers/OstreamPrinter.h"
 
 OstreamPrinter::OstreamPrinter(std::ostream& outS) : output(outS) {}
 

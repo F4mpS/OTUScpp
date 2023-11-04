@@ -1,4 +1,4 @@
-#include "FilePrinter.h"
+#include "headers/printers/FilePrinter.h"
 
 FilePrinter::FilePrinter(std::string fileName) : fileName(fileName) {}
 
