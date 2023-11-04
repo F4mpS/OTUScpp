@@ -11,8 +11,8 @@ add_executable(
     lib/Bulk.cpp
     lib/BulkContainer.cpp
     lib/Command.cpp
-    lib/printers/FilePrinter.cpp
-    lib/printers/OstreamPrinter.cpp
+    lib/FilePrinter.cpp
+    lib/OstreamPrinter.cpp
     lib/ConsoleReader.cpp
     lib/Moderator.cpp
     lib/interfaces/ICommand.cpp
