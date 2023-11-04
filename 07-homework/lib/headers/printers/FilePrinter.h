@@ -1,7 +1,8 @@
 #pragma once
 
 #include <chrono>
-#include <fstream>  
+#include <fstream> 
+#include <fmt/format>
 
 #include "../../interfaces/IPrinter.h"
 
