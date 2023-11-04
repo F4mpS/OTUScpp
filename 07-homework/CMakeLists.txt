@@ -32,7 +32,7 @@ target_include_directories(
 )
 
 target_link_libraries(
-    bayan PUBLIC fmt
+    bulk PUBLIC fmt
 )
 
 if (MSVC)
