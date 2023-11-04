@@ -17,7 +17,7 @@ jobs:
         run: sudo apt-get install libfmt-dev
       - run: dpkg -L libfmt-dev
 
-      - run: cmake 07-homework/ -D PATCH_VERSION=${{ github.run_number }}
+      - run: cmake 07-homework/ -D PATCH_VERSION=${{ github.run_number }} -D fmt-DIR=/usr/include
       - run: cmake --build .
       - run: cmake --build . --target package
       - name: Create Release
