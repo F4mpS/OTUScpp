@@ -5,7 +5,6 @@
 
 #include "Command.h"
 #include "ConsoleReader.h"
-#include "ConsolePrinter.h"
 #include "BulkContainer.h"
 #include "printers/FilePrinter.h"
 #include "printers/OstreamPrinter.h"
