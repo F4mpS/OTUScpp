@@ -1,8 +1,11 @@
 #pragma once
 
 #include <vector>
+#include <chrono>
 
 #include "Command.h"
+
+using system_clock = std::chrono::system_clock;
 
 class Bulk
 {
@@ -12,10 +15,13 @@ public:
 
     std::vector<Command> GetCommandsList();
     size_t GetSize();
+    system_clock::time_point GetCreationTime();
+
     void ClearCommandList();
     void AddCommand(Command);
 private:
     std::vector<Command> commadsList;
+    system_clock::time_point creationTime;
 };
 
 

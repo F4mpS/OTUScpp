@@ -1,10 +1,19 @@
 #include "headers/Moderator.h"
 
-Moderator::Moderator(size_t bulkSize, std::istream& inS = std::cin, std::ostream& outS = std::cout) :
-    input(new ConsoleReader(*this, inS)), 
-    output(new ConsolePrinter(outS)),
+Moderator::Moderator(size_t bulkSize, std::istream& inS = std::cin) :
+    input(new ConsoleReader(*this, inS)),
     bulkContainer(new BulkContainer(*this, bulkSize))
 {}
+
+void Moderator::AddOutputStream(std::ostream& outS)
+{
+    oPrinters.emplace_back(OstreamPrinter(outS));
+}
+
+void Moderator::AddOutputFile(std::string outFileName)
+{
+    fPrinters.emplace_back(FilePrinter(outFileName));
+}
 
 void Moderator::StartReading()
 {
@@ -37,15 +46,33 @@ void Moderator::LogCloseBrace()
         bulkContainer->ClearBulk();
 }
 
-void Moderator::LogPrint(std::vector<Command> commandsList)
+void Moderator::LogPrint(std::vector<Command> commandsList, system_clock::time_point bulkCreationTime)
 {
-    output->Print("bulk: ");
-    for (size_t i = 0; i < commandsList.size(); i++)
+    // commandsList -> std::vector<std::string> commandsNames
+    // rfor(FilePrinters)
+    //      Print(commandsNames)
+    // rfor(StreamPrinters)
+    //      Print(commandsNames)
+    std::vector<std::string> commandsNamesList;
+    for (auto &command : commandsList)
+        commandsNamesList.push_back(command.GetCommandName());
+    
+    for (auto &oPrinter : oPrinters)
+        oPrinter->Print(commandsNamesList);
+    for (auto &fPrinter : fPrinters)
     {
-        if (i == 0)
-            output->Print(commandsList[i].GetCommandName());
-        else 
-            output->Print(", " + commandsList[i].GetCommandName());
+        fPrinter->SetTimeTag(bulkCreationTime); // std::format("{:%Y%m%d%H%M%OS}", std::chrono::system_clock::now())
+        fPrinter->Print(commandsNamesList);
     }
-    output->Print("\n");
+    
+
+//     output->Print("bulk: ");
+//     for (size_t i = 0; i < commandsList.size(); i++)
+//     {
+//         if (i == 0)
+//             output->Print(commandsList[i].GetCommandName());
+//         else 
+//             output->Print(", " + commandsList[i].GetCommandName());
+//     }
+//     output->Print("\n");
 }

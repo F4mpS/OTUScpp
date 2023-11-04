@@ -22,5 +22,7 @@ void Bulk::ClearCommandList()
 
 void Bulk::AddCommand(Command command)
 {
+    if (commadsList.size() == 0)
+        creationTime = system_clock::now();
     commadsList.push_back(command);
 }

@@ -11,19 +11,13 @@ add_executable(
     lib/Bulk.cpp
     lib/BulkContainer.cpp
     lib/Command.cpp
-    lib/ConsolePrinter.cpp
+    lib/printers/FilePrinter.cpp
+    lib/printers/OstreamPrinter.cpp
     lib/ConsoleReader.cpp
     lib/Moderator.cpp
     lib/interfaces/ICommand.cpp
+    lib/interfaces/IPrinter.h
 )
-
-# add_library(
-    
-#     src/PrintIp.h
-#     src/PrintTuple.h
-#     src/Meta.h
-#     src/fake.cpp
-# )
 
 set_target_properties(
     bulk PROPERTIES

@@ -1,16 +1,28 @@
 #pragma once
 
+#include <chrono>
+#include <format>
+#include <vector>
+
 #include "Command.h"
 #include "ConsoleReader.h"
 #include "ConsolePrinter.h"
 #include "BulkContainer.h"
+#include "printers/FilePrinter.h"
+#include "printers/OstreamPrinter.h"
+
+using system_clock = std::chrono::system_clock;
 
 class Moderator
 {
 public:
-    Moderator(size_t, std::istream&, std::ostream&);
+    // Moderator(size_t, std::istream&, std::ostream&);
+    Moderator(size_t, std::istream&);
 
     ~Moderator() = default;
+
+    void AddOutputStream(std::ostream&);
+    void AddOutputFile(std::string);
 
     void StartReading();
     void EndReading();
@@ -19,10 +31,12 @@ public:
     void LogOpenBrace();
     void LogCloseBrace();
 
-    void LogPrint(std::vector<Command>);
+    void LogPrint(std::vector<Command>, system_clock::time_point);
 private:
+    std::vector<OstreamPrinter*> oPrinters;
+    std::vector<FilePrinter*> fPrinters;
+    // ConsolePrinter* output;
     ConsoleReader* input;
-    ConsolePrinter* output;
     BulkContainer* bulkContainer;
 };
 
