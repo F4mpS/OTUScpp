@@ -14,8 +14,8 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Install fmt library
-        run: sudo apt install libfmt-dev
-      - run: apt-cache search libfmt
+        run: sudo apt-get install libfmt-dev
+      - run: dpkg -L libfmt-dev
 
       - run: cmake 07-homework/ -D PATCH_VERSION=${{ github.run_number }}
       - run: cmake --build .
