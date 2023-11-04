@@ -5,7 +5,7 @@ set(PROJECT_VERSION 0.0.${PATCH_VERSION})
 
 project(bulk VERSION ${PROJECT_VERSION})
 
-find_package(fmt)
+find_package(fmt REQUIRED)
 
 add_executable(
     bulk
