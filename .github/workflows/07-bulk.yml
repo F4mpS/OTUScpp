@@ -13,6 +13,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Install fmt library
+        run: sudo apt install libfmt-dev
+      - run: apt-cache search libfmt
+
       - run: cmake 07-homework/ -D PATCH_VERSION=${{ github.run_number }}
       - run: cmake --build .
       - run: cmake --build . --target package
