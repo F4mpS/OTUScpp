@@ -9,7 +9,11 @@ void FilePrinter::SetTimeTag(system_clock::time_point newTimeTag)
 
 void FilePrinter::Print(const std::vector<std::string>& commandsNamesList) const
 {
-    std::string strTimeTag = fmt::format("{:%Y%m%d%H%M%S}", timeTag);
+    std::time_t t = std::chrono::system_clock::to_time_t(timeTag);
+    std::stringstream ss;
+    ss << t;
+    std::string strTimeTag = ss.str();
+    
     std::fstream outFile(fileName + strTimeTag + ".log");
 
     for (auto &command : commandsNamesList)
