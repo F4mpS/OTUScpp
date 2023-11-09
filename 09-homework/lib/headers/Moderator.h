@@ -24,7 +24,6 @@ public:
     void AddOutputFile(std::string);
 
     void ReadBuffer(const char *, size_t);
-    void SendInputToReceiver(std::string);
     void EndReceiving();
 
     void LogCommand(Command);
@@ -55,9 +54,10 @@ private:
         return r;
     }
 
+    
+    BulkContainer *bulkContainer;
+    CommandReceiver *receiver;
     std::vector<OstreamPrinter *> oPrinters;
     std::vector<FilePrinter *> fPrinters;
-    CommandReceiver *receiver;
-    BulkContainer *bulkContainer;
     size_t printCounter = 0;
 };

@@ -39,13 +39,8 @@ void Moderator::ReadBuffer(const char *data, size_t bufferSize)
         if (input != "")
             receiver->Receive(input);
 
-    // receivedData.clear();
-    // (void)bufferSize;
-}
-
-void Moderator::SendInputToReceiver(std::string input)
-{
-    
+    receivedData.clear();
+    (void)bufferSize;
 }
 
 void Moderator::EndReceiving()
@@ -75,7 +70,6 @@ void Moderator::LogCloseBrace()
     if (!bulkContainer->IsBraceOpen())
         bulkContainer->ClearBulk();
 }
-#include<iostream>
 
 void Moderator::LogPrint(std::vector<Command> commandsList, system_clock::time_point bulkCreationTime)
 {
@@ -83,16 +77,7 @@ void Moderator::LogPrint(std::vector<Command> commandsList, system_clock::time_p
     std::vector<std::string> commandsNamesList;
     for (auto &command : commandsList)
         commandsNamesList.push_back(command.GetCommandName());
-    
-    // for (auto &oPrinter : oPrinters)
-    //     oPrinter->Print(commandsNamesList);
 
-    // for (auto &fPrinter : fPrinters)
-    // {
-        
-        // fPrinter->SetTags(bulkCreationTime, printCounter);
-        // fPrinter->Print(commandsNamesList);
-    // }
     for (auto &oPrinter : oPrinters)
     {
         std::thread log(&Moderator::callPrint, this, std::ref(oPrinter), commandsNamesList);
