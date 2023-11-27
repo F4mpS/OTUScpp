@@ -4,7 +4,7 @@ set(PATCH_VERSION "1" CACHE INTERNAL "Patch version")
 set(PROJECT_VERSION 0.0.${PATCH_VERSION})
 project(bulk_server VERSION ${PROJECT_VERSION})
 
-find_package(Boost REQUIRED COMPONENTS asio)
+find_package(Boost REQUIRED COMPONENTS boost_asio)
 
 set(network
     lib/sources/Session.cpp
@@ -60,7 +60,7 @@ set_target_properties(
 )
 
 target_include_directories(bulk_server PRIVATE "${CMAKE_BINARY_DIR}")
-target_link_libraries(bulk_server PUBLIC Boost::asio)
+target_link_libraries(bulk_server PUBLIC Boost::boost_asio)
 
 if (MSVC)
     target_compile_options(bulk_server PRIVATE
