@@ -15,6 +15,7 @@ jobs:
 
       - name: Instaling boost
         run: sudo apt-get install -y libboost-program-options-dev
+        run: sudo apt-get install -y libboost-system-dev
         
       - run: cmake 11-homework/ -D PATCH_VERSION=${{ github.run_number }}
       - run: cmake --build .
