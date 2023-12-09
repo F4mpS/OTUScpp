@@ -12,7 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
- 
+
+      - name: Instaling boost
+        run: sudo apt install libboost-program-options-dev libboost-system-dev
+        
       - run: cmake 11-homework/ -D PATCH_VERSION=${{ github.run_number }}
       - run: cmake --build .
       - run: cmake --build . --target package

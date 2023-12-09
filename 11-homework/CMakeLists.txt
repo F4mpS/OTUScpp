@@ -23,7 +23,7 @@ set_target_properties(
 )
 
 target_include_directories(join_server PRIVATE "${CMAKE_BINARY_DIR}")
-target_link_libraries(join_server PRIVATE Boost::program_options Boost::system pthread stdc++fs)
+
 
 if (MSVC)
     target_compile_options(join_server PRIVATE
@@ -36,6 +36,7 @@ else ()
 endif()
 
 install(TARGETS join_server RUNTIME DESTINATION bin)
+target_link_libraries(join_server PRIVATE Boost::program_options Boost::system pthread stdc++fs)
 
 set(CPACK_GENERATOR DEB)
 set(CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")
