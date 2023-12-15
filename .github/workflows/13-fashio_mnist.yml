@@ -1,10 +1,10 @@
-name: 'mapreduce'
+name: 'fashio mnist'
 
 on:
   push:
     paths:
-      - '12-homework/**'
-      - '**/12-mapreduce.yml'
+      - '13-homework/**'
+      - '**/13-fashio_mnist.yml'
 
 jobs:
   build:
@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
  
-      - run: cmake 12-homework/ -D PATCH_VERSION=${{ github.run_number }}
+      - run: cmake 13-homework/ -D PATCH_VERSION=${{ github.run_number }} -D
       - run: cmake --build .
       - run: cmake --build . --target package
       - name: Create Release
@@ -22,8 +22,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: Mapreduce${{ github.run_number }}
-          release_name: Mapreduce release ${{ github.run_number }}
+          tag_name: FashioMnist${{ github.run_number }}
+          release_name: Fashio mnist release ${{ github.run_number }}
           draft: false
           prerelease: false
       - name: Upload Release Asset
@@ -33,6 +33,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./mapreduce-0.0.${{ github.run_number }}-Linux.deb
-          asset_name: mapreduce-0.0.${{ github.run_number }}-Linux.deb
+          asset_path: ./fashio_mnist-0.0.${{ github.run_number }}-Linux.deb
+          asset_name: fashio_mnist-0.0.${{ github.run_number }}-Linux.deb
           asset_content_type: application/vnd.debian.binary-package
