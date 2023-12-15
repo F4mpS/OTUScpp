@@ -12,8 +12,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
- 
-      - run: cmake 13-homework/ -D PATCH_VERSION=${{ github.run_number }} -D
+
+      - name: Instaling Boost
+        run: sudo apt install libboost-program-options-dev libboost-system-dev
+      
+      - name: Instaling Eigen
+        run: sudo apt install libeigen3-dev
+      
+      - run: cmake 13-homework/ -D PATCH_VERSION=${{ github.run_number }}
       - run: cmake --build .
       - run: cmake --build . --target package
       - name: Create Release
