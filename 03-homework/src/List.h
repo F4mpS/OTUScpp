@@ -8,14 +8,11 @@ namespace my
     private:
         struct Node
         {
-            Node(T data, Node *next)
+            Node(T data, Node *next) : next(next), data(std::move(data))
             {
-                this->data = std::move(data);
-                this->next = next;
             }
-            Node *next = nullptr;
+            Node *next;
             T data;
-
         };
 
         using NodeAllocator = typename Allocator::template rebind<Node>::other;
@@ -25,7 +22,8 @@ namespace my
         std::size_t size = 0;
 
     public:
-        List() {}
+        List() = default;
+        List(const List &) = delete;
 
         ~List()
         {
@@ -47,9 +45,9 @@ namespace my
                 alloc.construct(inserted, std::move(value), headPtr);
                 headPtr = inserted;
             }
-            else 
+            else
             {
-                Node* nodePtr = headPtr;
+                Node *nodePtr = headPtr;
 
                 while (nodePtr->next != nullptr)
                     nodePtr = nodePtr->next;
@@ -57,39 +55,40 @@ namespace my
                 alloc.construct(inserted, std::move(value), nodePtr->next);
                 nodePtr->next = inserted;
             }
-            
+
             size++;
         }
 
         class Iterator
         {
         private:
-            Node* cur;
-        public:
-            Iterator(Node* node) : cur(node) {}
+            Node *cur;
 
-            T& operator++ () 
+        public:
+            Iterator(Node *node) : cur(node) {}
+
+            T &operator++()
             {
                 cur = cur->next;
                 return cur->data;
             }
 
-            bool operator== (const Iterator& it) { return cur == it.cur; }
-            bool operator!= (const Iterator& it) { return cur != it.cur; }
+            bool operator==(const Iterator &it) { return cur == it.cur; }
+            bool operator!=(const Iterator &it) { return cur != it.cur; }
 
-            T& operator* () { return cur->data; }
+            T &operator*() { return cur->data; }
         };
 
         const Iterator begin() { return Iterator(headPtr); }
-        const Iterator end() 
+        const Iterator end()
         {
-            Node* ptr = headPtr;
+            Node *ptr = headPtr;
 
             while (ptr->next != nullptr)
             {
                 ptr = ptr->next;
             }
-            
+
             return Iterator(ptr->next);
         }
     };

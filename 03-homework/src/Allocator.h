@@ -8,7 +8,7 @@ namespace my
     private:
         T *memoryPool = nullptr;
         std::size_t nAllocated = 0;
-        std::array<bool, size> memoryMap{0, 0, 0, 0, 0};
+        std::array<bool, size> memoryMap{0};
 
     public:
         using value_type = T;
@@ -24,15 +24,24 @@ namespace my
                 throw std::bad_alloc();
             memoryMap.fill(false);
         }
-        template <class U>
-        Allocator(const Allocator<U, size> &a)
+
+        // copy ctor
+        Allocator(const Allocator<T, size> &)
         {
-            // std::cout << "Allocator copy ctor!" << std::endl;
             // memoryPool = static_cast<T *>(::operator new(size * sizeof(T)));
             // if (memoryPool == nullptr)
             //     throw std::bad_alloc();
             // memoryMap.fill(false);
-            // std::cout << "Allocator END copy ctor!" << std::endl;
+        }
+
+        // rebind ctor
+        template <class U>
+        Allocator(const Allocator<U, size> &)
+        {
+            // memoryPool = static_cast<T *>(::operator new(size * sizeof(T)));
+            // if (memoryPool == nullptr)
+            //     throw std::bad_alloc();
+            // memoryMap.fill(false);
         }
 
         ~Allocator()

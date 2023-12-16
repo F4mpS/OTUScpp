@@ -51,11 +51,13 @@ int main()
     std::map<int, int> mapStdAllocator; // work
     FillMap(mapStdAllocator); // work
 
-    // std::map<int, int, std::less<int>, my::Allocator<std::pair<int, int>, 10>> mapMyAllocator; // Segmentation fault
-    // FillMap(mapMyAllocator);
+    std::map<int, int, std::less<int>, my::Allocator<std::pair<int, int>, 10>> mapMyAllocator; // work
+    FillMap(mapMyAllocator);
     
+    std::cout << "START" << std::endl;
     Print(mapStdAllocator); // work
-    // Print(mapMyAllocator);
+    Print(mapMyAllocator); // work
+    std::cout << "END" << std::endl << std::endl;
 
     my::List<int> myListStdAllocator; // work
     FillList(myListStdAllocator); // work
@@ -63,8 +65,11 @@ int main()
     my::List<int, my::Allocator<int, 10>> myListMyAllocator; // work
     FillList(myListMyAllocator); // work
     
+    std::cout << "START" << std::endl;
     Print(myListStdAllocator); // work
     Print(myListMyAllocator); // work
+    std::cout << "END" << std::endl << std::endl;
+
 
     return 0;
 }
