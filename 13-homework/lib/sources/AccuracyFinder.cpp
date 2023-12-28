@@ -28,7 +28,7 @@ float AccuracyFinder::GetAccuracy(const std::filesystem::path& csvPath)
         read_features(fileString, features);
         auto pred = clf->predict(features);
 
-        if (expected = pred)
+        if (expected == pred)
             right++;
     }
 
